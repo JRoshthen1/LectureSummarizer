@@ -29,10 +29,8 @@ class LlmPage(tk.Frame):
 
     def run_llama_operation(self, llmTopics):
         try:
-            print("##### Started Llama...")
-            print(llmTopics)
             # Example: Llama class must be imported correctly here
-            llm = Llama(model_path="/home/jrosh/.local/share/nomic.ai/GPT4All/gpt4all-falcon-newbpe-q4_0.gguf", n_ctx=2048, )
+            llm = Llama(model_path="##############", n_ctx=2048, )
             # output = llm.create_chat_completion(
             #     messages=[
             #         {"role": "system", "content": "You are a teacher explaining in great detail given topics divided by new line."},
@@ -79,10 +77,7 @@ class LlmPage(tk.Frame):
             Returns:
                 Response object containing the generated text.
             """
-            print(output)
-            #print(output['choices'][0]['message']['content'])
             self.text_widget.after(0, self.update_text_widget, output['choices'][0])
-            print("##### Llama Finished")
         except Exception as e:
             print(f"Error during Llama operation: {e}")
             self.text_widget.after(0, self.update_text_widget, "An error occurred, please try again.")
