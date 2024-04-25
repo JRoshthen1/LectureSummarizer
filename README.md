@@ -1,11 +1,9 @@
-# Project Name
+# Lecture Summarizer
 
 ## Description
-
-Brief description of the project.
+Tkinter application to record text with openai-whisper, extract keyword from transcription with sklearn's TF-IDF and generate notes with gguf llm model 
 
 ## Requirements
-
 Python 3.10.12
 pip 24.0
 
@@ -16,7 +14,7 @@ pip 24.0
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/LectureSummarizer.git
+git clone https://github.com/JRoshthen1/LectureSummarizer.git
 ```
 Navigate to the project directory:
 
