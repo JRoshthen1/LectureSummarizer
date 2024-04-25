@@ -13,7 +13,7 @@ pip 24.0
 
 ### Running Locally
 
-    Clone the repository:
+Clone the repository:
 
 ```bash
 git clone https://github.com/yourusername/LectureSummarizer.git
@@ -26,7 +26,7 @@ cd LectureSummarizer/
 Install dependencies:
 
 ```bash
-    pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 ## Usage
@@ -35,7 +35,7 @@ Install dependencies:
 
 ## Contributing
 
-- Start by forking the repository and then clone your fork.
+- Start by forking the repository.
 - Create a branch in your fork for your contributions.
 - Commit your changes with clear commit messages.
 - Push your branch to your fork on GitHub and submit a pull request to the main project.
