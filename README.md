@@ -1,11 +1,9 @@
-# Project Name
+# Lecture Summarizer
 
 ## Description
-
-Brief description of the project.
+Tkinter application to record text with openai-whisper, extract keyword from transcription with sklearn's TF-IDF and generate notes with gguf llm model 
 
 ## Requirements
-
 Python 3.10.12
 pip 24.0
 
@@ -13,10 +11,10 @@ pip 24.0
 
 ### Running Locally
 
-    Clone the repository:
+Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/LectureSummarizer.git
+git clone https://github.com/JRoshthen1/LectureSummarizer.git
 ```
 Navigate to the project directory:
 
@@ -26,7 +24,7 @@ cd LectureSummarizer/
 Install dependencies:
 
 ```bash
-    pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 ## Usage
@@ -35,7 +33,7 @@ Install dependencies:
 
 ## Contributing
 
-- Start by forking the repository and then clone your fork.
+- Start by forking the repository.
 - Create a branch in your fork for your contributions.
 - Commit your changes with clear commit messages.
 - Push your branch to your fork on GitHub and submit a pull request to the main project.
