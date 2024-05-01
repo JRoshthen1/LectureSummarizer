@@ -59,12 +59,10 @@ class TranscriptionPage(tk.Frame):
         query = self.search_box.get()
         if not query:
             return
-
         # Starting position for the search (insert cursor position)
         start_pos = self.transcription_textarea.index(tk.INSERT)
         # Search for the query in the text area
         pos = self.transcription_textarea.search(query, start_pos, tk.END)
-
         if pos:
             # If found, move cursor to the start of the found text and select the text
             end_pos = f"{pos}+{len(query)}c"  # Calculate end position of the selection
@@ -72,11 +70,9 @@ class TranscriptionPage(tk.Frame):
             self.transcription_textarea.tag_add(tk.SEL, pos, end_pos)
             self.transcription_textarea.mark_set(tk.INSERT, pos)
             self.transcription_textarea.see(pos)
-
         # Hide the search box after search
         self.search_box.grid_remove()
         self.search_tooltip.grid_remove()
-
 
 
     def insert_into_textarea(self, transcription):
@@ -107,17 +103,13 @@ class TranscriptionPage(tk.Frame):
             whisper_model = whisper.load_model("small", device=hw_device)
             device_label = tk.Label(self, text="Loaded Whisper on: " + hw_device, font=self.app_data.mono_font)
             device_label.grid(row=2, column=0, pady=4)
-
             transcription_text = whisper_model.transcribe(audio_filepath)
             self.insert_into_textarea(transcription_text['text'])
-
-            
             # Collect garbage to free up memory (doesn't seem to work)
             del whisper_model
             if (hw_device=='cuda'):
                 torch.cuda.empty_cache()
             gc.collect()  
-
 
         except Exception as e:
             print(f"Error during transcription: {e}")

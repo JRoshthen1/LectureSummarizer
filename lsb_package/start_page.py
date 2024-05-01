@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+import webbrowser
 from datetime import datetime
 import sounddevice as sd
 import soundfile as sf
@@ -24,7 +25,6 @@ class StartPage(tk.Frame):
         all_devices = sd.query_devices()
         input_devices = {all_devices[i]['name']: i for i in range(len(all_devices)) if all_devices[i]['max_input_channels'] > 0}
 
-        # Dropdown for device selection
         self.device_var = tk.StringVar()
         device_names = list(input_devices.keys())
         self.device_menu = ttk.Combobox(self, values=device_names, textvariable=self.device_var)
@@ -35,10 +35,22 @@ class StartPage(tk.Frame):
         ttk.Button(self, text="Start Recording", command=self.start_recording).pack(pady=5)
         ttk.Button(self, text="Stop Recording", command=self.stop_recording).pack(pady=5)
         ttk.Button(self, text="Skip Recording", command=self.skip_recording_page).pack(pady=5)
-
+    
         # Recording indicator
         self.recording_indicator = tk.Label(self, text="Recording: OFF", fg="red")
         self.recording_indicator.pack(pady=5)
+
+
+        def open_license_dialog():
+            webbrowser.open("https://www.gnu.org/licenses/gpl.html")
+        label_link_license = tk.Label(self, text="click here for details. https://www.gnu.org/licenses/gpl.html", fg="blue", cursor="hand2")
+        label_link_license.pack(side="bottom")
+        label_link_license.bind("<Button-1>", lambda event: open_license_dialog())
+        label_license = tk.Label(self, text="Lecture Summarizer Copyright (C) 2024 Martin Jaros\nThis program comes with ABSOLUTELY NO WARRANTY;\nThis is free software, and you are welcome to redistribute it under certain conditions;")
+        label_license.pack(side="bottom")
+
+
+
 
     def start_recording(self):
         if not self.recording:
@@ -79,7 +91,6 @@ class StartPage(tk.Frame):
 
 
     def update_recording_indicator(self, is_recording):
-        #"""Update the recording indicator based on the recording state."""
         if is_recording:
             self.recording_indicator.config(text="Recording: ON", fg="green")
         else:

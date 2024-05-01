@@ -6,6 +6,7 @@ class AppData:
     def __init__(self):
         self._lecture_filename = None
         self._modified_keywords = None
+    highlights = None
 
     @property
     def lecture_filename(self):
@@ -22,15 +23,11 @@ class AppData:
     @modified_keywords.setter
     def modified_keywords(self, value):
         self._modified_keywords = value
-    
+
     heading_font = ("DejaVu Sans", 20, "bold")
     paragraph_font = ("DejaVu Sans", 12)
     serif_font = ("DejaVu Serif", 12)
     mono_font = ("Courier", 11)
-
-# class AppData:
-#     lecture_filename = None
-#     modified_keywords = None
 
 
 class App(tk.Tk):

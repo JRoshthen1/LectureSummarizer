@@ -1,7 +1,7 @@
 # Lecture Summarizer
 
 ## Description
-Tkinter application to record text with openai-whisper, extract keyword from transcription with sklearn's TF-IDF and generate notes with gguf llm model 
+Tkinter application to record text with openai-whisper, extract keywords from transcription with sklearn's TF-IDF and generate notes with gguf llm model 
 
 ## Requirements
 Python 3.10.12
@@ -16,20 +16,29 @@ Clone the repository:
 ```bash
 git clone https://github.com/JRoshthen1/LectureSummarizer.git
 ```
+
 Navigate to the project directory:
 
 ```bash
 cd LectureSummarizer/
 ```
+
 Install dependencies:
 
 ```bash
-pip install -r requirements.txt
+pip install tkinter sounddevice soundfile numpy openai-whisper torch scikit-learn nltk llama-cpp-python
 ```
 
 ## Usage
 
+1. Create `recordings` directory in the root of the application (./recordings/)
 
+2. Download a gguf model for text generation, [examples](https://huggingface.co/models?library=gguf)
+
+3. Run the app
+```bash
+python3 main.py
+```
 
 ## Contributing
 
