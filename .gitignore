@@ -1,2 +1,4 @@
 recordings/
 large_test_data/
+__pycache__/
+lsb_package/__pycache__/
