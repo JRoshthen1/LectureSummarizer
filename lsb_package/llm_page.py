@@ -45,7 +45,7 @@ class LlmPage(tk.Frame):
                 prompt=f"Genereate comprehensive, informative and factual descriptions for the provided keywords '{llmTopics}'.", # Prompt
                 max_tokens=0,
             )
-            self.text_widget.after(0, self.update_text_widget, output['choices'][0])
+            self.text_widget.after(0, self.update_text_widget, output['choices'][0]['text'])
             self.save_button.grid(row=5, column=0, pady=2, padx=2)
 
         except Exception as e:
